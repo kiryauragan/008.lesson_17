@@ -60,8 +60,34 @@ if (x === null || y === null || znak === null) {
 
 function addArray(rows, columns) {
 	let array = [];
-	for (let i = 0; i < rows; i++) {}
+	for (let i = 0; i < rows; i++) {
+		let insideArray = [];
+		for (let j = 0; j < columns; j++) {
+			let value = prompt(`Введіть значення елементу масива [${i}][${j}]`);
+			insideArray.push(value);
+		}
+		array.push(insideArray);
+	}
+	return array;
 }
+
+console.log(addArray(2, 2));
 
 //4. Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для видалення задає користувач.
 
+function removeChars(str, symbols) {
+	let symbolsArray = symbols.split("");
+	let result = "";
+	for (let i = 0; i < str.length; i++) {
+		let char = str[i];
+		if (!symbolsArray.includes(char)) {
+			result += char;
+		}
+	}
+	return result;
+}
+
+let str = prompt("Введіть рядок:", "hello world");
+let symbols = prompt("Введіть символи для видалення:", "l d");
+
+alert(removeChars(str, symbols));
